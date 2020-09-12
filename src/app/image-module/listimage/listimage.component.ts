@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../image.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-listimage',
@@ -8,15 +9,13 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./listimage.component.css']
 })
 export class ListimageComponent implements OnInit {
-
-  uploadForm: FormGroup;
   selectedFile: File;
   urls: any[];
   retrievedImage: any;
-  constructor(private formBuilder: FormBuilder,
-    private imageService: ImageService) { }
+  constructor(private imageService: ImageService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
+   
     this.imageService.getImageUrls().subscribe(urls => {
       this.urls = urls;
       console.log(this.urls);
@@ -28,7 +27,12 @@ export class ListimageComponent implements OnInit {
     const uploadImageData = new FormData();
     uploadImageData.append('imageFile', this.selectedFile);
     this.imageService.saveImage(uploadImageData).subscribe(res => {
-      console.log(res);
+      console.log(res)
+     if(res.message=="Image Uploaded"){
+      this.toastr.success("image save successful");
+     }else if(res.message=="InvalidFileFormat"){
+      this.toastr.error("Invalid file format");
+     }
       this.ngOnInit()
     })
 

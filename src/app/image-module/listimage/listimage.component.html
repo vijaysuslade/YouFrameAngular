@@ -7,7 +7,8 @@
   <div class="box">
     <div class="tile">
       <div *ngFor="let image of urls">
-       <span><img src="{{image.imageUrl}}" width="300" height="200"><p class="footer">{{image.imageName}}</p></span> 
+       <div><img  class="img-frame" src="{{image.imageUrl}}" width="300" height="200"></div>
+       <div class="footer">{{image.imageName}}</div>
       </div>
     </div>
   </div>

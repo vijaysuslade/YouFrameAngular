@@ -10,6 +10,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ImageModuleModule } from './image-module/image-module.module';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { ImageModuleModule } from './image-module/image-module.module';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ImageModuleModule
+    ImageModuleModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
