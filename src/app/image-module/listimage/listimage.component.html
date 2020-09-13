@@ -1,13 +1,13 @@
 <div class="preview-image">
   <div class="upload-button">
     <input #fileInput type="file" hidden (change)="handleChange($event)">
-    <button class="upload-btn" (click)="fileInput.click()"><img src="assets/images/download.png" width="50px" height="40px">Upload</button>
+    <button class="upload-btn" (click)="fileInput.click()"><img  src="assets/images/download.png" width="30px" height="30px">Upload</button>
   </div>
   
   <div class="box">
     <div class="tile">
       <div *ngFor="let image of urls">
-       <div><img  class="img-frame" src="{{image.imageUrl}}" width="300" height="200"></div>
+       <div><img  class="img-frame" src="{{image.imageUrl}}" width="310" height="200"></div>
        <div class="footer">{{image.imageName}}</div>
       </div>
     </div>

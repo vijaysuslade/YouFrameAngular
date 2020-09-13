@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../image.service';
 import { ToastrService } from 'ngx-toastr';
-import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-listimage',
